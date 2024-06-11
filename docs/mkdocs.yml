@@ -1,0 +1,7 @@
+site_name: "Terraform e AWS"
+theme:
+  name: "simple-blog"
+nav:
+  - Introdução: index.md
+  - AWS: aws.md
+  - Créditos: about.md
