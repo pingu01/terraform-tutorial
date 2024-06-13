@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-                <title>AWS - Terraform e AWS</title>
+                <title>Terraform - Terraform e AWS</title>
 
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,12 +58,12 @@
                             nav-link text-gray text-decoration-none" href="..">[Introdução]</a>
                         </li>
                         <li class="nav-item">
-                            <a class=" active 
-                            nav-link text-gray text-decoration-none" href="./">[AWS]</a>
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../aws/">[AWS]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="
-                            nav-link text-gray text-decoration-none" href="../terraform/">[Terraform]</a>
+                            <a class=" active 
+                            nav-link text-gray text-decoration-none" href="./">[Terraform]</a>
                         </li>
                         <li class="nav-item">
                             <a class="
@@ -116,31 +116,26 @@
     <article>
         <header>
             
-                <h1 class=" title" id="component-title">AWS</h1>
+                <h1 class=" title" id="component-title">Terraform</h1>
             
         </header>
-        <p><h2 id="instalando-aws-cli">Instalando AWS CLI</h2>
-<p>Para usar o Terraform com a AWS, é necessário instalar o AWS CLI, que nada mais é do que uma ferramenta de linha de comando que permite interagir com os serviços da AWS.</p>
+        <p><h2 id="instalando-e-executando-o-terraform">Instalando e executando o Terraform</h2>
+<p>Agora que você já tem o AWS CLI instalado e configurado, vamos instalar o Terraform. O Terraform é uma ferramenta de infraestrutura como código (IaC) que permite criar, alterar e versionar infraestrutura de forma segura e eficiente.</p>
 <h3 id="instalacao">Instalação</h3>
-<p>Para instalar o AWS CLI, basta executar o seguinte comando:</p>
-<pre><code class="language-bash">curl &quot;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&quot; -o &quot;awscliv2.zip&quot;
-unzip awscliv2.zip
-sudo ./aws/install
+<p>Instalar o Terraform é um processo simples, mas um pouco chato. Primeiro, acesse o site do Terrafom <a href="https://developer.hashicorp.com/terraform/install">aqui</a> e baixe o binário para o seu sistema operacional, no meu caso, é o AMD64 Linux.</p>
+<blockquote>
+<p><strong>Nota</strong>: Esse método de instalação serve para todas as distribuições Linux, porque o Terraform pode não estar disponível em todos os gerenciadores de pacotes que existem, mas se você preferir, pode usar as instruções para a distribuição que você usa.</p>
+</blockquote>
+<p><img alt="alt text" src="../assets/terraform1.png" /></p>
+<p>Depois de baixar o binário, vá até a pasta 'Downloads', extraia o arquivo e mova-o para o diretório <code>/usr/local/bin</code>:</p>
+<pre><code class="language-bash">cd ~/Downloads
+unzip terraform_1.0.0_linux_amd64.zip
+sudo mv terraform /usr/local/bin
 </code></pre>
-<p>Verifique a instalação:</p>
-<pre><code class="language-bash">aws --version
+<p>Agora, verifique a instalação:</p>
+<pre><code class="language-bash">terraform --version
 </code></pre>
-<h3 id="configuracao">Configuração</h3>
-<p>A configuração do AWS CLI é um pouco diferente no nosso caso (porque estamos usando o AWS Academy 💀), para configurar, inicie o Laboratório, e não entre no console.
-Clique primeiro em <code>AWS Details</code>, depois em <code>Show</code>, no campo 'AWS CLI'.
-<img alt="alt text" src="../assets/lab1.jpg" /></p>
-<p>Copie todo o texto e cole dentro do arquivo <code>~/.aws/credentials</code>, incluindo <code>[default]</code> no início. Você pode usar o comando <code>nano</code> ou até mesmo <code>code</code> para fazer isso, basta usar um dos comandos abaixo: </p>
-<pre><code class="language-bash">nano ~/.aws/credentials
-code ~/.aws/credentials
-</code></pre>
-<p><img alt="alt text" src="../assets/lab2.jpg" /></p>
-<p><img alt="alt text" src="../assets/lab3.jpg" /></p>
-<p>Com isso, o AWS CLI está configurado e pronto para uso. Agora vamos à instalação do Terraform.</p></p>
+<p>Se tudo estiver certo, você verá a versão do Terraform que acabou de instalar</p></p>
     </article>
 </section>
 <!-- endblock -->
@@ -150,13 +145,13 @@ code ~/.aws/credentials
                     <!-- block preview -->
         <div class="row row-cols-md-3 text-center pt-md-3" id="component-preview">
             <div class="col themed-grid-col">
-                <a rel="prev" href=".." class="nav-link">
+                <a rel="prev" href="../aws/" class="nav-link">
                     <i class="fa fa-arrow-left"></i> Previous
                 </a>
             </div>
             <div class="col themed-grid-col"></div>
             <div class="col themed-grid-col">
-                <a rel="next" href="../terraform/" class="nav-link">
+                <a rel="next" href="../deploy/" class="nav-link">
                     Next <i class="fa fa-arrow-right"></i>
                 </a>
             </div>

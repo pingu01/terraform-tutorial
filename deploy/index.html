@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-                <title>AWS - Terraform e AWS</title>
+                <title>Deploy da Infra - Terraform e AWS</title>
 
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,16 +58,16 @@
                             nav-link text-gray text-decoration-none" href="..">[Introdução]</a>
                         </li>
                         <li class="nav-item">
-                            <a class=" active 
-                            nav-link text-gray text-decoration-none" href="./">[AWS]</a>
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../aws/">[AWS]</a>
                         </li>
                         <li class="nav-item">
                             <a class="
                             nav-link text-gray text-decoration-none" href="../terraform/">[Terraform]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="
-                            nav-link text-gray text-decoration-none" href="../deploy/">[Deploy da Infra]</a>
+                            <a class=" active 
+                            nav-link text-gray text-decoration-none" href="./">[Deploy da Infra]</a>
                         </li>
                         <li class="nav-item">
                             <a class="
@@ -116,31 +116,48 @@
     <article>
         <header>
             
-                <h1 class=" title" id="component-title">AWS</h1>
+                <h1 class=" title" id="component-title">Deploy da Infra</h1>
             
         </header>
-        <p><h2 id="instalando-aws-cli">Instalando AWS CLI</h2>
-<p>Para usar o Terraform com a AWS, é necessário instalar o AWS CLI, que nada mais é do que uma ferramenta de linha de comando que permite interagir com os serviços da AWS.</p>
-<h3 id="instalacao">Instalação</h3>
-<p>Para instalar o AWS CLI, basta executar o seguinte comando:</p>
-<pre><code class="language-bash">curl &quot;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&quot; -o &quot;awscliv2.zip&quot;
-unzip awscliv2.zip
-sudo ./aws/install
-</code></pre>
-<p>Verifique a instalação:</p>
-<pre><code class="language-bash">aws --version
-</code></pre>
+        <p><h2 id="deploy-da-infraestrutura">Deploy da Infraestrutura</h2>
 <h3 id="configuracao">Configuração</h3>
-<p>A configuração do AWS CLI é um pouco diferente no nosso caso (porque estamos usando o AWS Academy 💀), para configurar, inicie o Laboratório, e não entre no console.
-Clique primeiro em <code>AWS Details</code>, depois em <code>Show</code>, no campo 'AWS CLI'.
-<img alt="alt text" src="../assets/lab1.jpg" /></p>
-<p>Copie todo o texto e cole dentro do arquivo <code>~/.aws/credentials</code>, incluindo <code>[default]</code> no início. Você pode usar o comando <code>nano</code> ou até mesmo <code>code</code> para fazer isso, basta usar um dos comandos abaixo: </p>
-<pre><code class="language-bash">nano ~/.aws/credentials
-code ~/.aws/credentials
+<p>Para realizar o deploy da infraestrutura usando o Terraform, você precisa criar um arquivo de configuração que descreve a infraestrutura que você deseja criar. Crie um arquivo chamado <code>main.tf</code> e adicione o seguinte conteúdo:</p>
+<pre><code class="language-hcl">provider &quot;aws&quot; {
+  region = &quot;us-east-1&quot;
+}
+
+resource &quot;aws_instance&quot; &quot;example&quot; {
+  ami           = &quot;ami-0c02fb55956c7d316&quot;  # Amazon Linux 2 AMI (HVM), SSD Volume Type
+  instance_type = &quot;t2.micro&quot;
+
+  tags = {
+    Name = &quot;TerraformExample&quot;
+  }
+}
 </code></pre>
-<p><img alt="alt text" src="../assets/lab2.jpg" /></p>
-<p><img alt="alt text" src="../assets/lab3.jpg" /></p>
-<p>Com isso, o AWS CLI está configurado e pronto para uso. Agora vamos à instalação do Terraform.</p></p>
+<p>No exemplo acima, você está criando uma instância EC2 na região <code>us-east-1</code> com a AMI <code>ami-0c02fb55956c7d316</code> e o tipo de instância <code>t2.micro</code>. Além disso, você está nomeando-a de <code>TerraformExample</code>.</p>
+<h3 id="inicializacao">Inicialização</h3>
+<p>Abra o terminal no diretório que contém o arquivo <code>main.tf</code> e execute:</p>
+<pre><code class="language-bash">terraform init
+</code></pre>
+<h3 id="planejando-a-infraestrutura">Planejando a infraestrutura</h3>
+<p>Para ver o que será criado, execute: </p>
+<pre><code class="language-bash">terraform plan
+</code></pre>
+<h3 id="aplicando-as-mudancas">Aplicando as mudanças</h3>
+<p>Para criar a infraestrutura, execute:</p>
+<pre><code class="language-bash">terraform apply
+</code></pre>
+<p>Digite <code>yes</code> quando for solicitado para confirmar a criação da infraestrutura.</p>
+<h3 id="limpar-a-infraestrutura">Limpar a infraestrutura</h3>
+<p>Para remover a infraestrutura criada, execute:</p>
+<pre><code class="language-bash">terraform destroy
+</code></pre>
+<p>Digite <code>yes</code> quando for solicitado para confirmar a remoção da infraestrutura.</p>
+<h3 id="conclusao">Conclusão</h3>
+<p>Após seguir esses passos, você terá criado uma instância EC2 na AWS usando o Terraform, entre no console da AWS e veja a instância criada.</p>
+<div class="tenor-gif-embed" data-postid="21591151" data-share-method="host" data-aspect-ratio="1.77778" data-width="100%"><a href="https://tenor.com/view/gojo-thumbs-up-jujutsu-kaisen-gif-21591151">Gojo Thumbs Up GIF</a>from <a href="https://tenor.com/search/gojo-gifs">Gojo GIFs</a></div>
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script></p>
     </article>
 </section>
 <!-- endblock -->
@@ -150,13 +167,13 @@ code ~/.aws/credentials
                     <!-- block preview -->
         <div class="row row-cols-md-3 text-center pt-md-3" id="component-preview">
             <div class="col themed-grid-col">
-                <a rel="prev" href=".." class="nav-link">
+                <a rel="prev" href="../terraform/" class="nav-link">
                     <i class="fa fa-arrow-left"></i> Previous
                 </a>
             </div>
             <div class="col themed-grid-col"></div>
             <div class="col themed-grid-col">
-                <a rel="next" href="../terraform/" class="nav-link">
+                <a rel="next" href="../credits/" class="nav-link">
                     Next <i class="fa fa-arrow-right"></i>
                 </a>
             </div>
