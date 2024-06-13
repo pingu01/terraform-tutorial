@@ -4,4 +4,6 @@ theme:
 nav:
   - Introdução: index.md
   - AWS: aws.md
-  - Créditos: about.md
+  - Terraform: terraform.md
+  - Deploy da Infra: deploy.md
+  - Créditos: credits.md
